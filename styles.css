@@ -1,0 +1,69 @@
+/* Aspectes generals, i orientats a mobils, mobile-first */
+
+html {
+    background-color: rgb(191, 201, 245);
+    font-family: sans-serif;
+}
+
+#main {
+    height: 30vh;
+    background-color: rgb(160, 176, 245);
+}
+
+#colors {
+    height: 60vh;
+    background-color: rgb(137, 150, 207);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+#colors>div {
+    background-color: rgb(99, 114, 182);
+    border: 1px solid black;
+    /** Per evitar que el borde "molestiu" quan fem proves  */
+    box-sizing: border-box;
+    height: 20vh;
+    /** 100 / 4 = 25. Volem col·locar 4 elements a cada fila, per tant cada element ocuparà 25% */
+    flex: 0 25%;
+}
+
+#colors>div:hover {
+    background-color: gray;
+}
+
+/* Les media queris les podem fer de baix cap a dalt o de dalt cap a baix 
+En aquest cas hem optat per fer el que se'n diu mobile first. Per tant
+el css sense media querys és per pantalles petites, i a mesura que anem pujant (min-width) anem
+modificant per tal de mostrar-ho en pantalla gran */
+
+/** Tauletes */
+
+@media only screen and (min-width: 768px) {
+    #main {
+        background-color: rgb(245, 160, 160);
+    }
+
+}
+
+/** Sobretaules */
+
+@media (min-width: 1200px) {
+    #main {
+        height: 40vh;
+        background-color: rgb(236, 248, 60);
+    }
+ 
+    #colors {
+        /** Donem més espai a la part superior */
+        height: 50vh;
+        background-color: rgb(207, 137, 137);
+        /** tot a la mateixa línia */
+        flex-wrap: nowrap;
+    }
+    #colors>div {
+        background-color: rgb(182, 99, 99);
+        height: 50vh;
+        flex: auto;
+    }
+}
